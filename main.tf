@@ -52,6 +52,7 @@ resource "aws_instance" "ec2_terraform" {
   key_name        = var.key_name
   security_groups = [aws_security_group.terraform_sg.name]
   user_data       = file("install_apache.sh")
+  count   = 2
 
   tags = {
     name = "ec2_terraform"
